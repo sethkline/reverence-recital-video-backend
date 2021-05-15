@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tickets",
+  "info": {
+    "name": "ticket",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "sale_start_time": {
+      "type": "datetime"
+    },
+    "sale_end_time": {
+      "type": "datetime"
+    },
+    "show": {
+      "via": "tickets",
+      "model": "show"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "is_handicap": {
+      "type": "boolean"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "tickets"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "videos",
+  "info": {
+    "name": "Video",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "mux_video_uploader_mux_asset": {
+      "plugin": "mux-video-uploader",
+      "model": "mux-asset"
+    },
+    "start_time": {
+      "type": "datetime"
+    },
+    "end_time": {
+      "type": "datetime"
+    },
+    "event": {
+      "model": "event",
+      "via": "videos"
+    }
+  }
+}

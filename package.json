@@ -1,0 +1,43 @@
+{
+  "name": "strapi-users",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Reverence Studios Recital Video app",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "dependencies": {
+    "knex": "^0.20.15",
+    "sqlite3": "^5.0.2",
+    "strapi": "3.3.3",
+    "strapi-admin": "3.3.3",
+    "strapi-connector-bookshelf": "3.3.3",
+    "strapi-plugin-content-manager": "3.3.3",
+    "strapi-plugin-content-type-builder": "3.3.3",
+    "strapi-plugin-documentation": "3.3.3",
+    "strapi-plugin-email": "3.3.3",
+    "strapi-plugin-mux-video-uploader": "^1.1.0",
+    "strapi-plugin-upload": "3.3.3",
+    "strapi-plugin-users-permissions": "3.3.3",
+    "strapi-provider-email-console": "^0.0.1",
+    "strapi-utils": "3.3.3",
+    "stripe": "^8.145.0"
+  },
+  "author": {
+    "name": "Seth Kline"
+  },
+  "strapi": {
+    "uuid": "b64155d6-41aa-4f74-910f-ca8e30041aac"
+  },
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "smee-client": "^1.2.2"
+  }
+}

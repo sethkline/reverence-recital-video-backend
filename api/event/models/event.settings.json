@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "events",
+  "info": {
+    "name": "Event"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "start_time": {
+      "type": "datetime"
+    },
+    "event_name": {
+      "type": "string"
+    },
+    "mux_asset": {
+      "via": "events",
+      "plugin": "mux-video-uploader",
+      "model": "mux-asset"
+    },
+    "videos": {
+      "via": "event",
+      "collection": "video"
+    }
+  }
+}

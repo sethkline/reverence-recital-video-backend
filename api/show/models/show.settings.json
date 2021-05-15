@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shows",
+  "info": {
+    "name": "show",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "start_time": {
+      "type": "datetime"
+    },
+    "end_time": {
+      "type": "datetime"
+    },
+    "description": {
+      "type": "text"
+    },
+    "tickets": {
+      "collection": "ticket",
+      "via": "show"
+    },
+    "ticketPrice": {
+      "type": "decimal"
+    }
+  }
+}

@@ -23,6 +23,7 @@
     "strapi-plugin-mux-video-uploader": "^1.1.0",
     "strapi-plugin-upload": "3.3.3",
     "strapi-plugin-users-permissions": "3.3.3",
+    "strapi-provider-email-mailgun": "^3.6.2",
     "strapi-provider-email-sendgrid": "^3.6.2",
     "strapi-utils": "3.3.3",
     "stripe": "^8.145.0"

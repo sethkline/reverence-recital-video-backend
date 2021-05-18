@@ -1,13 +1,13 @@
 module.exports = ({ env }) => ({
   email: {
-    provider: 'sendgrid',
+    provider: 'mailgun',
     providerOptions: {
-      apiKey: env('SENDGRID_API_KEY')
+      apiKey: env('MAILGUN_API_KEY'),
+      domain: env('MAILGUN_DOMAIN')
     },
     settings: {
       defaultFrom: 'kirsten@reverencestudios.com',
-      defaultReplyTo: 'kirsten@reverencestudios.com',
-      testAddress: 'kirsten@reverencestudios.com'
+      defaultReplyTo: 'kirsten@reverencestudios.com'
     }
   }
 });

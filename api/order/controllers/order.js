@@ -1,6 +1,5 @@
 'use strict';
 const stripe = require('stripe')(process.env.STRIPE_SK);
-// ('sk_test_Y5wUlhFRBFmajq1nl3YYTC5H');
 
 module.exports = {
   create: async (ctx) => {
@@ -39,12 +38,22 @@ module.exports = {
       const roles = await strapi.query('role', 'users-permissions').find({}, []);
       let findRole = roles.find((role) => role.name === plan[0].slug);
       if (findRole) {
-        let updateUserRole = await strapi
-          .query('user', 'users-permissions')
-          .update({ id: ctx.state.user.id }, { role: findRole.id });
-        console.log(updateUserRole);
+        await strapi.query('user', 'users-permissions').update({ id: ctx.state.user.id }, { role: findRole.id });
       }
     } catch (error) {
+      console.log(error);
+      throw error;
+    }
+
+    // Send email
+    try {
+      await strapi.plugins['email'].services.email.send({
+        to: ctx.state.user.email,
+        from: 'office@reverencestudios.com',
+        subject: 'Thanks for signing up for Reverence Recital Video',
+        text: `Thank you ${fullName} for signing up to watch online the 2021 Reverence Recital! You have signed up for ${plan[0].name}. Your total paid is $${amount}. Thank you for supporting Reverence Studios.`
+      });
+    } catch (e) {
       console.log(error);
       throw error;
     }

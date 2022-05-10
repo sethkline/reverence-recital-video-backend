@@ -10,8 +10,10 @@
     "strapi": "strapi"
   },
   "dependencies": {
+    "analytics-node": "^6.0.0",
     "knex": "^0.20.15",
     "pg": "^8.6.0",
+    "popper.js": "^1.16.1",
     "sqlite3": "^5.0.2",
     "strapi": "3.3.3",
     "strapi-admin": "3.3.3",

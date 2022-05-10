@@ -1,5 +1,7 @@
 'use strict';
 const stripe = require('stripe')(process.env.STRIPE_SK);
+const Analytics = require('analytics-node');
+const analytics = new Analytics(process.env.SEGMENT_WRITE_KEY);
 
 module.exports = {
   create: async (ctx) => {
@@ -51,12 +53,24 @@ module.exports = {
         to: ctx.state.user.email,
         from: 'office@reverencestudios.com',
         subject: 'Thanks for signing up for Reverence Recital Video',
-        text: `Thank you ${fullName} for signing up to watch online the 2021 Reverence Recital! You have signed up for ${plan[0].name}. Your total paid is $${amount}. Thank you for supporting Reverence Studios.`
+        text: `Thank you ${fullName} for signing up to watch online the 2022 Reverence Recital! You have signed up for ${plan[0].name}. Your total paid is $${amount}. Thank you for supporting Reverence Studios.`
       });
     } catch (e) {
       console.log(error);
       throw error;
     }
+    // Create User with Segment
+    analytics.identify({
+      userId: ctx.state.user.id,
+      traits: {
+        name: fullName,
+        email: ctx.state.user.email,
+        plan: plan,
+        address,
+        city,
+        postalCode
+      }
+    });
 
     // Register the order in the database
     try {

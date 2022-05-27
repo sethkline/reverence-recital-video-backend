@@ -65,7 +65,7 @@ module.exports = {
       traits: {
         name: fullName,
         email: ctx.state.user.email,
-        plan: plan,
+        plan: plan[0].slug,
         address,
         city,
         postalCode
